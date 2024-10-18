@@ -1,101 +1,159 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import CountUp from "react-countup";
+import {
+  FaFileDownload,
+  FaHeadphones,
+  FaLinkedin,
+  FaYoutube,
+  FaTwitter,
+} from "react-icons/fa";
 
-export default function Home() {
+const Page = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div>
+      <div className="mainContainer pl-10p bg-base-100 text-white pt-28">
+        <div className="flex1">
+          <div className="Owner flex justify-between ml-1.5 items-center">
+            <div className="OwnerInfo">
+              <h1>Software Developer</h1>
+              <h2 className="text-7xl mt-2 text-justify">
+                Hello I'm
+                <br />
+                <span className="text-green-500">Mustafa Umar</span>
+              </h2>
+              <p className="w-72 text-sm text-justify mt-5">
+                I excel at crafting elegant digital experiences and I am
+                proficient in various languages and technologies.
+              </p>
+              <div className="flex justify-around mt-5">
+                <button className="btn btn-ghost border border-green-500 text-green-500 hover:bg-white hover:text-black px-4 py-2 rounded-full">
+                  DOWNLOAD CV
+                  <FaFileDownload className="inline mr-2" />
+                </button>
+                <a
+                  href="#"
+                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                >
+                  <FaHeadphones className="mr-2" />
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                >
+                  <FaLinkedin className="mr-2" />
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                >
+                  <FaYoutube className="mr-2" />
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                >
+                  <FaTwitter className="mr-2" />
+                </a>
+              </div>
+            </div>
+            <div className="image-container relative mr-80">
+              <motion.div
+                className="absolute rounded-full border-dashed border-4 border-green-800"
+                initial={{ x: -3, y: -3 }}
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+                style={{
+                  width: "407px",
+                  height: "407px",
+                  transform: "translate(-100%, -100%)",
+                }}
+              />
+              <motion.div
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: 1.5, duration: 0.4, ease: "easeIn" },
+                  rotate: [0, 0],
+                }}
+              >
+                <Image
+                  src="/image.jpg"
+                  width={400}
+                  height={400}
+                  alt="My Image"
+                  className="rounded-full"
+                />
+              </motion.div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="counting flex justify-start mt-20 ">
+          <div className="flex justify-center">
+            <h1 className="text-5xl font-bold">
+              <CountUp start={0} end={4} duration={2.5} />
+            </h1>
+            <p className="ml-3 text-xs w-16 mt-2">Years of experience</p>
+          </div>
+          <div className="flex justify-center mx-10p">
+            <h1 className="text-5xl font-bold">
+              <CountUp start={0} end={9} duration={2.5} />
+            </h1>
+            <p className="ml-3 text-xs w-16 mt-2">Projects Completed</p>
+          </div>
+          <div className="flex justify-center">
+            <h1 className="text-5xl font-bold">
+              <CountUp start={0} end={12} duration={2.5} />
+            </h1>
+            <p className="ml-3 text-xs w-16 mt-2">Technologies Mastered</p>
+          </div>
+          <div className="flex justify-center mx-10p">
+            <h1 className="text-5xl font-bold">
+              <CountUp start={0} end={200} duration={2.5} />
+            </h1>
+            <p className="ml-3 text-xs w-16 mt-2">Code Commits</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Media query for 1434px width */}
+      <style jsx>{`
+        @media (max-width: 1434px) {
+          .Owner {
+            flex-direction: column;
+            align-items: center;
+          }
+          .image-container {
+            margin-top: 20px;
+            margin-right: 0;
+            display: flex;
+            justify-content: center;
+          }
+            .counting {
+            flex
+            justify-center;
+        }
+            @media (max-width: 869px){
+            .counting{
+            display: flex; 
+            flex-wrap: wrap;
+            width:450px
+            justify-content: center
+            overflow: scroll
+            }
+      `}</style>
     </div>
   );
-}
+};
+
+export default Page;
