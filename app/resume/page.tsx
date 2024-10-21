@@ -22,9 +22,9 @@ const Page = () => {
       : "bg-gray-800 text-white transition duration-300 ease-in-out";
 
   return (
-    <div className="pl-64 bg-base-100 text-white">
-      <div className="flex justify-start pt-28 ml-1.5 mr-10p pr-3">
-        <div className="flex flex-col justify-start w-40p">
+    <div className="Contain pl-20p bg-base-100 text-white ">
+      <div className="Main flex justify-start pt-28 ml-1.5 mr-32 pr-3 mb-20 ">
+        <div className="Hiring flex flex-col justify-start w-30p">
           <div>
             <h1 className="text-4xl">
               <b>Why Hire Me?</b>
@@ -77,7 +77,7 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="w-50p">
+        <div className="Experiences w-60p">
           <h1 className="text-4xl">
             <b>
               {activeSection === "experience"
@@ -89,7 +89,7 @@ const Page = () => {
                 : "My Skills"}
             </b>
           </h1>
-          <p className="text-xs leading-normal opacity-70 w-90p my-3">
+          <p className="text-xs leading-normal opacity-70 w-60p my-3">
             I bring a strong background in web development and design, combining
             creativity with practical technical solutions.
           </p>
@@ -107,6 +107,37 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 1151px) {
+        .Contain{
+        pl-20p
+        }
+          .Main {
+            flex-direction: column;
+            align-items: center;
+            width:auto
+          }
+          .Hiring{
+          width: 100%;
+          }
+          .Experiences{
+            width: 100%;
+
+          }
+            @media (max-width: 650px) {
+            .Contain{
+            
+            
+            }
+            .Main{
+            margin-right: 50px
+            }
+            .Experiences{
+ 
+            }
+      }
+
+      `}</style>
     </div>
   );
 };

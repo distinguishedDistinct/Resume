@@ -14,7 +14,7 @@ import {
 const Page = () => {
   return (
     <div>
-      <div className="mainContainer pl-10p bg-base-100 text-white pt-28">
+      <div className="mainContainer pl-20p bg-base-100 text-white pt-28">
         <div className="flex1">
           <div className="Owner flex justify-between ml-1.5 items-center">
             <div className="OwnerInfo">
@@ -59,7 +59,7 @@ const Page = () => {
                 </a>
               </div>
             </div>
-            <div className="image-container relative mr-80">
+            <div className="image-container mr-80">
               <motion.div
                 className="absolute rounded-full border-dashed border-4 border-green-800"
                 initial={{ x: -3, y: -3 }}

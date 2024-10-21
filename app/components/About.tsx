@@ -1,62 +1,49 @@
 import React from "react";
 
+type InfoBlockProps = {
+  label: string;
+  value: string;
+};
+
 const About = () => {
   return (
-    <div className="flex justify-between ">
+    <div className=" About flex justify-between">
       <div className="flex justify-start mt-10">
         <div className="flex flex-col mr-5">
-          <p className="text-2xs leading-normal opacity-70 mb-2">Name</p>
-          <p className="text-2xs leading-normal opacity-70 mb-2 my-5">
-            Experience
-          </p>
-          <p className="text-2xs leading-normal opacity-70 mb-2 my-5">
-            Nationality
-          </p>
-          <p className="text-2xs leading-normal opacity-70 mb-2 my-5">
-            Freelance
-          </p>
-        </div>
-        <div className="flex flex-col">
-          <h3 className="text-2xs leading-normal font-bold mb-2">
-            Mustafa Umar
-          </h3>
-          <h3 className="text-2xs leading-normal font-bold mb-2 my-5">
-            4 Years
-          </h3>
-          <h3 className="text-2xs leading-normal font-bold mb-2 my-5">
-            Pakistani
-          </h3>
-          <h3 className="text-2xs leading-normal font-bold mb-2 my-5">
-            Available
-          </h3>
+          {/* Information Block */}
+          <InfoBlock label="Name" value="Mustafa Umar" />
+          <InfoBlock label="Experience" value="4 Years" />
+          <InfoBlock label="Nationality" value="Pakistani" />
+          <InfoBlock label="Freelance" value="Available" />
         </div>
       </div>
       <div className="flex justify-start h-72 mt-10">
         <div className="flex flex-col mr-10">
-          <p className="text-2xs leading-normal opacity-70 mb-2">Phone</p>
-          <p className="text-2xs leading-normal opacity-70 mb-2 my-5">
-            Instagram
-          </p>
-          <p className="text-2xs leading-normal opacity-70 mb-2 my-5">Email</p>
-          <p className="text-2xs leading-normal opacity-70 mb-2 my-5">
-            Languages
-          </p>
-        </div>
-        <div className="flex flex-col">
-          <h3 className="text-2xs leading-normal font-bold mb-2">
-            (+92) 324 5283 434
-          </h3>
-          <h3 className="text-2xs leading-normal font-bold mb-2 my-5">
-            mustafa_umar.jpg
-          </h3>
-          <h3 className="text-2xs leading-normal font-bold mb-2 my-5">
-            mustafaumar2001@gmail.com
-          </h3>
-          <h3 className="text-2xs leading-normal font-bold mb-2 my-5 ">
-            English, Urdu
-          </h3>
+          <InfoBlock label="Phone" value="(+92) 324 5283 434" />
+          <InfoBlock label="Instagram" value="mustafa_umar.jpg" />
+          <InfoBlock label="Email" value="mustafaumar2001@gmail.com" />
+          <InfoBlock label="Languages" value="English, Urdu" />
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 750px) {
+          .About {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+// Reusable InfoBlock component with types
+const InfoBlock: React.FC<InfoBlockProps> = ({ label, value }) => {
+  return (
+    <div className="flex justify-start mb-5">
+      <p className="text-2xs leading-normal opacity-70 mr-3">{label}</p>
+      <h3 className="text-2xs leading-normal font-bold">{value}</h3>
     </div>
   );
 };

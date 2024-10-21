@@ -3,7 +3,7 @@ import ResumeCard from "./ResumeCard";
 
 const Education = () => {
   return (
-    <div className="flex flex-wrap gap-4 h-96 overflow-y-auto  ">
+    <div className="Resume flex flex-wrap gap-4 h-96 overflow-y-auto  ">
       <ResumeCard
         date="2024"
         title=" Web Development"
@@ -35,6 +35,23 @@ const Education = () => {
         title=" Freelance Web Developer"
         desc="E-commerce"
       ></ResumeCard>
+
+      <style jsx>{`
+        @media (max-width: 830px) {
+          .Resume {
+            flex-direction: column;
+            overflow: scroll;
+            height: 200px;
+          }
+        }
+        @media (max-width: 580px) {
+          .Resume {
+            overflow: scroll;
+            height: 300px;
+            margin-left: 0px;
+          }
+        }
+      `}</style>
     </div>
   );
 };
