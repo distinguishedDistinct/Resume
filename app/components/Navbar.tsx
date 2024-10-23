@@ -11,7 +11,7 @@ const Navbar = () => {
   const isActive = (link: string) => {
     // Check if the current path matches the link
     if (link === "Home") {
-      return pathname === "/" ? "underline text-green-500" : "";
+      return pathname === "/" ? "underline text-green-500 " : "";
     }
     return pathname === `/${link.toLowerCase()}`
       ? "underline text-green-500"
@@ -70,6 +70,9 @@ const Navbar = () => {
               </a>
             </li>
           ))}
+          <button className="rounded-full font-extrabold bg-green-400 p-2 text-black hover:text-black hover:bg-white ml-4">
+            Hire Me
+          </button>
         </ul>
       </div>
     </div>
