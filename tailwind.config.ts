@@ -72,6 +72,23 @@ const config: Config = {
         '90p': '90%',
         '100p': '100%',
       },
+      rotate: {
+        '0deg': '0deg',
+        '15deg': '15deg',
+        '30deg': '30deg',
+        '45deg': '45deg',
+        '60deg': '60deg',
+        '90deg': '90deg',
+        '120deg': '120deg',
+        '135deg': '135deg',
+        '180deg': '180deg',
+        '225deg': '225deg',
+        '270deg': '270deg',
+        '300deg': '300deg',
+        '315deg': '315deg',
+        '360deg': '360deg',
+      }
+
     },
   },
   plugins: [require('daisyui')],
