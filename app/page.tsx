@@ -15,13 +15,28 @@ const Page = () => {
   const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth < 661) {
-      setIsMobileView(true);
-    } else {
-      setIsMobileView(false);
-    }
-  }, [window.innerWidth]);
+    // Function to check screen size
+    const handleResize = () => {
+      if (window.innerWidth < 661) {
+        setIsMobileView(true);
+      } else {
+        setIsMobileView(false);
+      }
+    };
 
+    // Add event listener for resize
+    if (typeof window !== "undefined") {
+      handleResize(); // Check on initial load
+      window.addEventListener("resize", handleResize);
+    }
+
+    // Cleanup the event listener on unmount
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
+  }, []);
   return (
     <div>
       <div className="mainContainer pl-20p bg-base-100 text-white pt-28">
