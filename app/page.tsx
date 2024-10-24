@@ -29,10 +29,13 @@ const Page = () => {
                 proficient in various languages and technologies.
               </p>
               <div className="flex justify-around mt-5">
-                <button className="btn btn-ghost border border-green-500 text-green-500 hover:bg-white hover:text-black px-4 py-2 rounded-full">
+                <a
+                  className="btn btn-ghost border border-green-500 text-green-500 hover:bg-white hover:text-black px-4 py-2 rounded-full"
+                  href="Mustafa Umar Resume.pdf"
+                >
                   DOWNLOAD CV
                   <FaFileDownload className="inline mr-2" />
-                </button>
+                </a>
                 <a
                   href="#"
                   className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
@@ -40,7 +43,7 @@ const Page = () => {
                   <FaHeadphones className="mr-2" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/mustafa-umar-674a0b256/"
                   className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
                 >
                   <FaLinkedin className="mr-2" />
@@ -62,7 +65,7 @@ const Page = () => {
             <div className="image-container mr-80">
               <motion.div
                 className="absolute rounded-full border-dashed border-4 border-green-800"
-                initial={{ x: -3, y: -3 }}
+                initial={{ x: -6, y: -6 }}
                 animate={{
                   rotate: [0, 360],
                 }}
@@ -72,8 +75,8 @@ const Page = () => {
                   repeatType: "reverse",
                 }}
                 style={{
-                  width: "407px",
-                  height: "407px",
+                  width: "411px",
+                  height: "411px",
                   transform: "translate(-100%, -100%)",
                 }}
               />
@@ -92,7 +95,7 @@ const Page = () => {
                   width={400}
                   height={400}
                   alt="My Image"
-                  className="rounded-full"
+                  className="main-image rounded-full"
                 />
               </motion.div>
             </div>
@@ -128,7 +131,10 @@ const Page = () => {
 
       {/* Media query for 1434px width */}
       <style jsx>{`
-        @media (max-width: 1434px) {
+        @media (max-width: 1550px) {
+        .mainContainer{
+        padding-left: 0px
+        }
           .Owner {
             flex-direction: column;
             align-items: center;
@@ -140,8 +146,8 @@ const Page = () => {
             justify-content: center;
           }
             .counting {
-            flex
-            justify-center;
+            display: flex;
+            justify-content: center;
         }
             @media (max-width: 869px){
             .counting{
@@ -151,6 +157,15 @@ const Page = () => {
             justify-content: center
             overflow: scroll
             }
+             @media (max-width: 430px){
+            .mainContainer{
+              align-items: center;
+              text-align: center
+              margin-left: auto;
+              margin-right: auto;
+                }
+              }
+
       `}</style>
     </div>
   );

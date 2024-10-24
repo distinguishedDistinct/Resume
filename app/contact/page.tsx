@@ -34,17 +34,16 @@ const page = () => {
           }
 
           .Socials {
-            margin-top: 50px; /* Add spacing between WorkCard and Carousel on smaller screens */
+            margin-top: 50px;
             margin-bottom: 50px;
-            margin-right: 0; /* Remove right margin for better alignment */
+            margin-right: 0;
           }
         }
         @media (max-width: 450) {
           .Work-container {
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 5px;
+            margin-right: 5px;
             padding-right: 80px;
-            width: 70%;
           }
         }
       `}</style>

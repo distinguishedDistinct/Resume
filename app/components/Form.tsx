@@ -9,17 +9,17 @@ const Form = () => {
         Want to work with me? send me a message and we'll get back right get
         you.
       </p>
-      <div className="flex">
-        <div className="mr-5 ml-5">
-          <Input labels="" placeholder="" type="name" />
+      <div className="Input-containers flex">
+        <div className=" First mr-5 ml-5">
+          <Input labels="" placeholder="Name" type="name" />
         </div>
-        <Input labels="" placeholder="" type="name" />
+        <Input labels="" placeholder="Email" type="name" />
       </div>
-      <div className="flex my-5 ">
-        <div className="mr-5 ml-5">
-          <Input labels="" placeholder="" type="name" />
+      <div className="Input-containers flex my-5 ">
+        <div className="First mr-5 ml-5">
+          <Input labels="" placeholder="Company" type="name" />
         </div>
-        <Input labels="" placeholder="" type="name" />
+        <Input labels="" placeholder="Years" type="name" />
       </div>
       <select name="cars" id="cars" className="w-100p py-2">
         <option value="placeholder">Select Service</option>
@@ -39,12 +39,30 @@ const Form = () => {
         Send Message
       </button>
       <style jsx>{`
-        @media (max-width: 450) {
+        @media (max-width: 450px) {
+          .Main-Container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+          }
+          .Input-containers {
+            flex-direction: column;
+            width: 50%;
+            margin-right: auto;
+            margin-left: auto;
+          }
+
           h1 {
             font-size: 2rem;
           }
           p {
-            font-size: 12px;
+            width: 280px;
+            font-size: 10px;
+          }
+          .First {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 5px;
           }
         }
       `}</style>

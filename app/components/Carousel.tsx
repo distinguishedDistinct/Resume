@@ -24,7 +24,7 @@ const Carousel = (props: {
           ))}
         </div>
 
-        <div className="flex justify-end mt-2">
+        <div className="Buttons flex justify-end mt-2">
           <button
             onClick={props.prevSlide}
             className="btn bg-[rgb(8,213,132)] rounded-none text-black hover:bg-white"
@@ -39,6 +39,20 @@ const Carousel = (props: {
           </button>
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 400px) {
+          img {
+            width: 300px;
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .Buttons {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      `}</style>
     </div>
   );
 };

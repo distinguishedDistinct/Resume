@@ -9,7 +9,7 @@ const Card = (props: {
     <div className="card ">
       <div className="transition ease-in-out delay-100  hover:text-green-600 duration-300 ">
         <div className="flex justify-between">
-          <h1 className="text-5xl ">{props.serial}</h1>
+          <h1 className="text-5xl mr-16">{props.serial}</h1>
           <div>
             <button className="  -rotate-45 text-black text-3xl p-2.5 px-5  bg-white rounded-full transition ease-in-out delay-150 hover:bg-green-600 hover:-rotate-90">
               ↓
@@ -23,6 +23,14 @@ const Card = (props: {
       </p>
 
       <div className="opacity-50 border-b border-gray-500 mt-4"></div>
+      <style jsx>{`
+        @media (max-width: 400px) {
+          .cardsContainer {
+            flex-direction: column;
+            margin-right: 1.25rem;
+          }
+        }
+      `}</style>
     </div>
   );
 };
