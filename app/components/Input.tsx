@@ -44,6 +44,7 @@ export const Input = (props: {
         <label className="floating-label">{props.placeholder}</label>
 
         <input
+          required
           type={props.type}
           value={inputValue}
           onChange={handleInputChange}

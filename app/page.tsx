@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import CountUp from "react-countup";
@@ -12,6 +12,16 @@ import {
 } from "react-icons/fa";
 
 const Page = () => {
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 661) {
+      setIsMobileView(true);
+    } else {
+      setIsMobileView(false);
+    }
+  }, [window.innerWidth]);
+
   return (
     <div>
       <div className="mainContainer pl-20p bg-base-100 text-white pt-28">
@@ -28,58 +38,71 @@ const Page = () => {
                 I excel at crafting elegant digital experiences and I am
                 proficient in various languages and technologies.
               </p>
-              <div className="flex justify-around mt-5">
+              <div className="Socials flex justify-around mt-5">
                 <a
-                  className="btn btn-ghost border border-green-500 text-green-500 hover:bg-white hover:text-black px-4 py-2 rounded-full"
+                  className=" btn btn-ghost border border-green-500 text-green-500 hover:bg-white hover:text-black px-4 py-2 rounded-full"
                   href="Mustafa Umar Resume.pdf"
                 >
                   DOWNLOAD CV
-                  <FaFileDownload className="inline mr-2" />
+                  <FaFileDownload className=" inline mr-2" />
                 </a>
                 <a
                   href="#"
-                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                  className="Icons flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
                 >
-                  <FaHeadphones className="mr-2" />
+                  <FaHeadphones className="Icons2 mr-2" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/mustafa-umar-674a0b256/"
-                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                  className="Icons flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
                 >
-                  <FaLinkedin className="mr-2" />
+                  <FaLinkedin className="Icons2 mr-2" />
                 </a>
                 <a
                   href="#"
-                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                  className="Icons flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
                 >
-                  <FaYoutube className="mr-2" />
+                  <FaYoutube className="Icons2 mr-2" />
                 </a>
                 <a
                   href="#"
-                  className="flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
+                  className="Icons flex items-center text-green-700 border border-green-500 hover:bg-white hover:text-black pr-2 pl-4 rounded-full"
                 >
-                  <FaTwitter className="mr-2" />
+                  <FaTwitter className="Icons2 mr-2" />
                 </a>
               </div>
             </div>
             <div className="image-container mr-80">
-              <motion.div
-                className="absolute rounded-full border-dashed border-4 border-green-800"
-                initial={{ x: -6, y: -6 }}
-                animate={{
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-                style={{
-                  width: "411px",
-                  height: "411px",
-                  transform: "translate(-100%, -100%)",
-                }}
-              />
+              {isMobileView ? (
+                <motion.div
+                  className=" absolute rounded-full border-dashed border-4 border-green-800 w-411px h-411px max-[430px]:w-260px max-[430px]:h-260px"
+                  initial={{ x: -6, y: -6 }}
+                  animate={{
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                  style={{
+                    transform: "translate(-100%, -100%)",
+                  }}
+                />
+              ) : (
+                <motion.circle
+                  className="Circle absolute rounded-full border-dashed border-4 border-green-800 w-411px h-411px max-[430px]:w-260px max-[430px]:h-260px"
+                  initial={{ x: -6, y: -6 }}
+                  animate={{
+                    rotate: [0, 20],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                />
+              )}
               <motion.div
                 initial={{
                   opacity: 0,
@@ -90,12 +113,9 @@ const Page = () => {
                   rotate: [0, 0],
                 }}
               >
-                <Image
+                <img
                   src="/image.jpg"
-                  width={400}
-                  height={400}
-                  alt="My Image"
-                  className="main-image rounded-full"
+                  className="main-image rounded-full w-400px resize-none"
                 />
               </motion.div>
             </div>
@@ -135,6 +155,9 @@ const Page = () => {
         .mainContainer{
         padding-left: 0px
         }
+        img{
+        margin-right:12px
+        }
           .Owner {
             flex-direction: column;
             align-items: center;
@@ -164,7 +187,22 @@ const Page = () => {
               margin-left: auto;
               margin-right: auto;
                 }
-              }
+              img{
+              width: 250px;
+              height: 250px;
+      }
+      .Socials{
+        flex-direction: column;
+        align-items: center;
+      }    
+        .Icons{
+        margin-bottom: 5px;
+        margin-top: 10px
+        
+        } 
+          
+      }
+              
 
       `}</style>
     </div>

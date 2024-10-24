@@ -10,16 +10,16 @@ const Form = () => {
         you.
       </p>
       <div className="Input-containers flex">
-        <div className=" First mr-5 ml-5">
-          <Input labels="" placeholder="Name" type="name" />
+        <div className=" First mr-10">
+          <Input labels="Name" placeholder="" type="name" />
         </div>
-        <Input labels="" placeholder="Email" type="name" />
+        <Input labels="Email" placeholder="" type="name" />
       </div>
       <div className="Input-containers flex my-5 ">
-        <div className="First mr-5 ml-5">
-          <Input labels="" placeholder="Company" type="name" />
+        <div className="First mr-10">
+          <Input labels="Company" placeholder="" type="name" />
         </div>
-        <Input labels="" placeholder="Years" type="name" />
+        <Input labels="Years" placeholder="" type="name" />
       </div>
       <select name="cars" id="cars" className="w-100p py-2">
         <option value="placeholder">Select Service</option>
