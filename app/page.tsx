@@ -106,10 +106,10 @@ const Page = () => {
                 />
               ) : (
                 <motion.circle
-                  className="Circle absolute rounded-full border-dashed border-4 border-green-800 w-411px h-411px max-[430px]:w-260px max-[430px]:h-260px"
+                  className=" absolute rounded-full border-dashed border-4 border-green-800 w-411px h-411px max-[430px]:w-260px max-[430px]:h-260px -z-1"
                   initial={{ x: -6, y: -6 }}
                   animate={{
-                    rotate: [0, 20],
+                    rotate: [-5, 5],
                   }}
                   transition={{
                     duration: 10,
@@ -178,7 +178,7 @@ const Page = () => {
             align-items: center;
           }
           .image-container {
-            margin-top: 20px;
+            margin-top: 50px;
             margin-right: 0;
             display: flex;
             justify-content: center;
