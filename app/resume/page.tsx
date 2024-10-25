@@ -22,7 +22,7 @@ const Page = () => {
       : "bg-gray-800 text-white transition duration-300 ease-in-out";
 
   return (
-    <div className="Contain pl-20p bg-base-100 text-white ">
+    <div className="mainContainer pl-20p bg-base-100 text-white ">
       <div className="Main flex justify-start pt-28 ml-1.5 mr-32 pr-3 mb-20 ">
         <div className="Hiring flex flex-col justify-start w-30p">
           <div>
@@ -36,44 +36,45 @@ const Page = () => {
               design.
             </p>
           </div>
-
-          <div>
-            <button
-              className={`rounded-md w-80p py-2 ${getButtonStyle(
-                "experience"
-              )}`}
-              onClick={() => handleSectionClick("experience")}
-            >
-              Experience
-            </button>
-          </div>
-          <div>
-            <button
-              className={`rounded-md w-80p my-6 py-2 ${getButtonStyle(
-                "education"
-              )}`}
-              onClick={() => handleSectionClick("education")}
-            >
-              Education
-            </button>
-          </div>
-          <div>
-            <button
-              className={`rounded-md w-80p py-2 ${getButtonStyle("skills")}`}
-              onClick={() => handleSectionClick("skills")}
-            >
-              Skills
-            </button>
-          </div>
-          <div>
-            <button
-              className={`rounded-md w-80p my-6 py-2 ${getButtonStyle(
-                "about"
-              )}`}
-              onClick={() => handleSectionClick("about")}
-            >
-              About me
-            </button>
+          <div className="Buttons">
+            <div>
+              <button
+                className={`rounded-md w-80p py-2 ${getButtonStyle(
+                  "experience"
+                )}`}
+                onClick={() => handleSectionClick("experience")}
+              >
+                Experience
+              </button>
+            </div>
+            <div>
+              <button
+                className={`rounded-md w-80p my-6 py-2 ${getButtonStyle(
+                  "education"
+                )}`}
+                onClick={() => handleSectionClick("education")}
+              >
+                Education
+              </button>
+            </div>
+            <div>
+              <button
+                className={`rounded-md w-80p py-2 ${getButtonStyle("skills")}`}
+                onClick={() => handleSectionClick("skills")}
+              >
+                Skills
+              </button>
+            </div>
+            <div>
+              <button
+                className={`rounded-md w-80p my-6 py-2 ${getButtonStyle(
+                  "about"
+                )}`}
+                onClick={() => handleSectionClick("about")}
+              >
+                About me
+              </button>
+            </div>
           </div>
         </div>
 
@@ -109,8 +110,9 @@ const Page = () => {
       </div>
       <style jsx>{`
         @media (max-width: 1151px) {
-        .Contain{
+        .mainContainer{
         pl-20p
+        
         }
           .Main {
             flex-direction: column;
@@ -125,10 +127,7 @@ const Page = () => {
 
           }
             @media (max-width: 650px) {
-            .Contain{
             
-            
-            }
             .Main{
             margin-right: 50px
             }
@@ -136,6 +135,31 @@ const Page = () => {
  
             }
       }
+             @media (max-width: 430px) {
+            .Main{
+                padding-top: 30px
+                          }
+             .Buttons{
+             display: flex;
+             flex-direction: column;
+             
+            
+             width: 100%;
+             margin-left: 30px;
+             margin-right: auto;
+             }
+             h1{
+             text-align: center;
+             margin-left: auto;
+             margin-right: auto;
+             }
+             p{
+                width: 200px;
+                text-align: center;
+                margin-left: auto;
+             margin-right: auto;
+             }
+             }
 
       `}</style>
     </div>

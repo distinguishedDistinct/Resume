@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"; // Import usePathname
 const Navbar = () => {
   const pathname = usePathname(); // Get the current path
 
-  const links = ["Home", "Services", "Resume", "Work", "Contact"];
+  const links = ["Home", "Services", "Resume", "Work"];
 
   const isActive = (link: string) => {
     // Check if the current path matches the link
@@ -19,10 +19,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 text-white justify-between">
-      <div className="navbar-start pl-20p mr-10">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+    <div className="main navbar bg-base-100 text-white justify-between">
+      <div className="navbar-start pl-20p ">
+        <div className="dropdown ">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -70,11 +70,16 @@ const Navbar = () => {
               </a>
             </li>
           ))}
-          <button className="rounded-full font-extrabold bg-green-400 p-2 text-black hover:text-black hover:bg-white ml-4">
-            Hire Me
-          </button>
+          <a
+            href="/contact"
+            className="rounded-full font-extrabold bg-green-400 p-2 text-black hover:text-black hover:bg-white ml-4"
+          >
+            Contact
+          </a>
         </ul>
       </div>
+
+      
     </div>
   );
 };

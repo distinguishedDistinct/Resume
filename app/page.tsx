@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import CountUp from "react-countup";
 import {
   FaFileDownload,
@@ -136,7 +135,7 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div className="counting flex justify-start mt-20 ">
+        <div className="counting flex justify-center mt-20 mb-20 mr-52">
           <div className="flex justify-center">
             <h1 className="text-5xl font-bold">
               <CountUp start={0} end={4} duration={2.5} />
@@ -155,7 +154,7 @@ const Page = () => {
             </h1>
             <p className="ml-3 text-xs w-16 mt-2">Technologies Mastered</p>
           </div>
-          <div className="flex justify-center mx-10p">
+          <div className="last flex justify-center ml-10p mr-32">
             <h1 className="text-5xl font-bold">
               <CountUp start={0} end={200} duration={2.5} />
             </h1>
@@ -166,6 +165,7 @@ const Page = () => {
 
       {/* Media query for 1434px width */}
       <style jsx>{`
+          
         @media (max-width: 1550px) {
         .mainContainer{
         padding-left: 0px
@@ -185,22 +185,49 @@ const Page = () => {
           }
             .counting {
             display: flex;
-            justify-content: center;
+            align-items: center;
+            justify-content: end;
+            margin-right: 50px
         }
-            @media (max-width: 869px){
-            .counting{
-            display: flex; 
-            flex-wrap: wrap;
-            width:450px
-            justify-content: center
-            overflow: scroll
-            }
-             @media (max-width: 430px){
+             @media (max-width: 1200px) {
+             .counting{
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             
+             }
+             .last{
+             
+             marging-right: 0;
+             margin-left: 150px
+             
+             }
+             }
+           
+             @media (max-width: 430px)
+             {
+              h1{text-align: center;
+              margin-right: 10px;}
+              h2{
+              text-align: center;
+              margin-right: 10px;
+              
+              }
+              p{text-align: center;
+              margin-right: 10px;
+              margin-left:auto;
+              margin-right: auto;
+              }
+
+             .counting{margin-left: auto;
+             margin-right: auto;
+             }
             .mainContainer{
               align-items: center;
               text-align: center
               margin-left: auto;
               margin-right: auto;
+              padding-top: 20px;
                 }
               img{
               width: 250px;
@@ -210,11 +237,16 @@ const Page = () => {
         flex-direction: column;
         align-items: center;
       }    
+
         .Icons{
+        
         margin-bottom: 5px;
         margin-top: 10px
         
         } 
+        .mainContainer{
+        
+        }
           
       }
               

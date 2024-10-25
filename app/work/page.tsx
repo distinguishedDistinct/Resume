@@ -62,6 +62,7 @@ const Page = () => {
           @media (max-width: 1500px) {
             .Main-Container {
               padding-left: 0px;
+              padding-top: 30px;
             }
 
             .Work-container {
@@ -78,8 +79,10 @@ const Page = () => {
             }
           }
           @media (max-width: 400px) {
+            .Main-Container {
+              padding-top: 30px;
+            }
             .Work-container {
-            
               margin-left: auto;
               margin-right: auto;
               padding-right: 80px;
