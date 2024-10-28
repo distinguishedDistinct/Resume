@@ -4,31 +4,43 @@ import React, { useState } from "react";
 import Card from "../components/Card";
 
 const page = () => {
-  const [isModal, setIsModal] = useState(false);
+  const [modalData, setModalData] = useState<{
+    heading: string;
+    paragraph: string;
+    image: string;
+  } | null>(null);
 
-  // Function to toggle the modal state
-  const Modal = () => {
-    setIsModal(true);
+  // Function to open the modal with specific card data
+  const openModal = (data: {
+    heading: string;
+    paragraph: string;
+    image: string;
+  }) => {
+    setModalData(data);
   };
 
   // Function to close the modal
   const closeModal = () => {
-    setIsModal(false);
+    setModalData(null);
   };
 
   return (
     <div className="mainContainer pl-20p bg-base-100 text-white pt-28">
-      {isModal ? (
-        // Modal content that appears when `isModal` is true
-        <div className="Modal-Container fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 ">
+      {modalData ? (
+        <div className="Modal-Container fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
           <div className="modalContent bg-white p-5 rounded-lg text-black">
-            <h2 className="text-2xl mb-4">Modal Title</h2>
-            <p>
-              This is the modal content. Click outside or the button to close.
-            </p>
+            <h2 className="text-2xl mb-4 ml-auto mr-auto text-center">
+              {modalData.heading}
+            </h2>
+            <p>{modalData.paragraph}</p>
+            <img
+              src={modalData.image}
+              alt={modalData.heading}
+              className="mt-4 mb-4 w-full max-w-md ml-auto mr-auto"
+            />
             <button
               onClick={closeModal}
-              className="mt-4 bg-green-400 text-black p-2 rounded"
+              className="mt-4 bg-green-400 text-black p-2 rounded align-middle"
             >
               Close Modal
             </button>
@@ -39,33 +51,57 @@ const page = () => {
           <div className="cardsContainer flex justify-between">
             <Card
               heading="Graphic Designing"
-              paragraph="As a graphic designer, I create visually 
-              engaging designs that communicate ideas effectively."
+              paragraph="As a graphic designer, I create visually engaging designs that communicate ideas effectively."
               serial="01"
-              Modal={Modal}
+              Modal={() =>
+                openModal({
+                  heading: "Graphic Designing",
+                  paragraph:
+                    "As a graphic designer, I create visually engaging designs that communicate ideas effectively.",
+                  image: "./graphic.jpg",
+                })
+              }
             />
             <Card
-              heading="Graphic Designing"
-              paragraph="As a graphic designer, I create visually 
-              engaging designs that communicate ideas effectively."
+              heading="Web Development"
+              paragraph="I build responsive and user-friendly websites using modern web technologies."
               serial="02"
-              Modal={Modal}
+              Modal={() =>
+                openModal({
+                  heading: "Web Development",
+                  paragraph:
+                    "I build responsive and user-friendly websites using modern web technologies.",
+                  image: "./website.jpg", // Replace with actual image path
+                })
+              }
             />
           </div>
           <div className="cardsContainer flex justify-between">
             <Card
-              heading="Graphic Designing"
-              paragraph="As a graphic designer, I create visually 
-              engaging designs that communicate ideas effectively."
+              heading="Digital Marketing"
+              paragraph="I develop strategies to improve brand visibility and engagement on digital platforms."
               serial="03"
-              Modal={Modal}
+              Modal={() =>
+                openModal({
+                  heading: "Digital Marketing",
+                  paragraph:
+                    "I develop strategies to improve brand visibility and engagement on digital platforms.",
+                  image: "./digital.jpg", // Replace with actual image path
+                })
+              }
             />
             <Card
-              heading="Graphic Designing"
-              paragraph="As a graphic designer, I create visually 
-              engaging designs that communicate ideas effectively."
+              heading="Content Creation"
+              paragraph="I create compelling content to engage audiences and drive brand growth."
               serial="04"
-              Modal={Modal}
+              Modal={() =>
+                openModal({
+                  heading: "Content Creation",
+                  paragraph:
+                    "I create compelling content to engage audiences and drive brand growth.",
+                  image: "./content.jpg", // Replace with actual image path
+                })
+              }
             />
           </div>
         </div>
@@ -76,20 +112,18 @@ const page = () => {
         @media (max-width: 1300px) {
           .cardsContainer {
             flex-direction: column;
-            justify-content: center
+            justify-content: center;
             margin-right: 1.25rem; /* Adjust margin for smaller screens */
           }
         }
 
         @media (max-width: 400px) {
           .mainContainer {
-          align-item: center;
+            align-item: center;
             margin-left: auto;
             margin-right: auto;
             padding-top: 80px;
-
           }
-          
         }
       `}</style>
     </div>

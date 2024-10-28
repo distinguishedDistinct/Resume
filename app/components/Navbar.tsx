@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"; // Import usePathname
 const Navbar = () => {
   const pathname = usePathname(); // Get the current path
 
-  const links = ["Home", "Services", "Resume", "Work"];
+  const links = ["Home", "Services", "Resume", "Work", "Contact"];
 
   const isActive = (link: string) => {
     // Check if the current path matches the link
@@ -78,8 +78,6 @@ const Navbar = () => {
           </a>
         </ul>
       </div>
-
-      
     </div>
   );
 };

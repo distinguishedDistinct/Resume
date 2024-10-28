@@ -15,8 +15,7 @@ const Page = () => {
         "As a graphic designer, I create visually engaging designs that communicate ideas effectively.",
       serial: "01",
       tools: "HTML 5, CSS 3, JavaScript",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp",
+      image: "graphic.jpg",
     },
     {
       heading: "Web Development",
@@ -24,8 +23,7 @@ const Page = () => {
         "I build dynamic websites and applications using modern web technologies.",
       serial: "02",
       tools: "React, Node.js, MongoDB",
-      image:
-        "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp",
+      image: "website.jpg",
     },
   ];
 
