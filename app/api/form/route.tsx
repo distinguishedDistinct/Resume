@@ -1,6 +1,6 @@
 import { connectionSrt } from "@/app/lib/db";
 import mongoose from "mongoose";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { Form } from "@/app/lib/model/form";
 
 export async function GET() {
@@ -22,18 +22,25 @@ export async function GET() {
   }
 }
 
-export async function POST(request: { json: () => any }) {
-  const payload = await request.json();
+export async function POST(request: NextRequest) {
+  const payload = await request.json(); // Getting JSON data from the request
   await mongoose.connect(connectionSrt);
 
   try {
     let form = new Form(payload);
     const result = await form.save();
     return NextResponse.json({ result, success: true, status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return NextResponse.json({
+        success: false,
+        message: error.message || "Failed to submit the form",
+        status: 400,
+      });
+    }
     return NextResponse.json({
       success: false,
-      message: error.message || "Failed to submit the form",
+      message: "An unexpected error occurred",
       status: 400,
     });
   }
