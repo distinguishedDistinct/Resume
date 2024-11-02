@@ -1,41 +1,93 @@
-import React from "react";
+import { useState } from "react";
 import Input from "../components/Input";
 
 const Form = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [years, setYears] = useState("");
+  const [service, setService] = useState("Web Development");
+  const [message, setMessage] = useState("");
+  const formData = {
+    name,
+    email,
+    company,
+    years: parseInt(years),
+    service,
+    message,
+  };
+  const sendForm = async () => {
+    const response = await fetch("http://localhost:3000/api/form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert("Form submitted successfully");
+      window.location.reload(); // This will refresh the page
+    } else {
+      alert(result.message || "Failed to submit the form"); // Display the error message
+    }
+  };
+
   return (
     <div className="Main-Container bg-gray-800 p-5">
       <h1 className="text-green-400 text-3xl"> Let's Work Together</h1>
       <p className="w-96 my-5">
-        Want to work with me? send me a message and we'll get back right get
-        you.
+        Want to work with me? send me a message and we'll get right back to you.
       </p>
       <div className="Input-containers flex">
         <div className=" First mr-10">
-          <Input labels="Name" placeholder="" type="name" />
+          <Input labels="Name" placeholder="" type="text" onChange={setName} />
         </div>
-        <Input labels="Email" placeholder="" type="name" />
+        <Input labels="email" placeholder="" type="email" onChange={setEmail} />
       </div>
       <div className="Input-containers flex my-5 ">
         <div className="First mr-10">
-          <Input labels="Company" placeholder="" type="name" />
+          <Input
+            labels="Company"
+            placeholder=""
+            type="text"
+            onChange={setCompany}
+          />
         </div>
-        <Input labels="Years" placeholder="" type="name" />
+        <Input
+          labels="Years"
+          placeholder=""
+          type="number"
+          onChange={setYears}
+        />
       </div>
-      <select name="cars" id="cars" className="w-100p py-2">
+      <select
+        name="Service"
+        id="Service"
+        className="w-100p py-2"
+        required
+        onChange={(e) => setService(e.target.value)}
+      >
         <option value="placeholder">Select Service</option>
-        <option value="volvo">Web Development</option>
-        <option value="saab">Graphic Design</option>
-        <option value="mercedes">UI/UX Design</option>
-        <option value="audi">Logo Design</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="UI/UX Design">UI/UX Design</option>
+        <option value="Logo Design">Logo Design</option>
       </select>
       <textarea
-        name=""
+        onChange={(e) => setMessage(e.target.value)}
+        name="message"
         id=""
         placeholder="Type your message here."
         className="my-5 w-100p"
         rows={8}
       ></textarea>
-      <button className="rounded-full font-extrabold bg-green-400 p-2 text-black hover:text-black hover:bg-white">
+      <button
+        className="rounded-full font-extrabold bg-green-400 p-2 text-black hover:text-black hover:bg-white"
+        onClick={sendForm}
+      >
         Send Message
       </button>
       <style jsx>{`

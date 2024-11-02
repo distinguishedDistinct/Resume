@@ -5,12 +5,15 @@ export const Input = (props: {
   labels: string;
   type: string | undefined;
   placeholder: string;
+  onChange: (value: string) => void;
 }) => {
   const [inputValue, setInputValue] = useState("");
   const [isFocused, setIsFocused] = useState(false); // To track input focus
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    const value = e.target.value;
+    setInputValue(value);
+    props.onChange(value); // Call the onChange prop with the new value
   };
 
   const handleFocus = () => {

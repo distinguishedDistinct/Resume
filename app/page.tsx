@@ -42,16 +42,27 @@ const Page = () => {
         <div className="flex1">
           <div className="Owner flex justify-between ml-1.5 items-center">
             <div className="OwnerInfo">
-              <h1>Software Developer</h1>
-              <h2 className="text-7xl mt-2 text-justify">
-                Hello I'm
-                <br />
-                <span className="text-green-500">Mustafa Umar</span>
-              </h2>
-              <p className="w-72 text-sm text-justify mt-5">
-                I excel at crafting elegant digital experiences and I am
-                proficient in various languages and technologies.
-              </p>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
+                  rotate: [0, 0],
+                }}
+              >
+                <h1>Software Developer</h1>
+                <h2 className="text-7xl mt-2 text-justify">
+                  Hello I'm
+                  <br />
+                  <span className="text-green-500">Mustafa Umar</span>
+                </h2>
+                <p className="w-72 text-sm text-justify mt-5">
+                  I excel at crafting elegant digital experiences and I am
+                  proficient in various languages and technologies.
+                </p>
+              </motion.div>
               <div className="Socials flex justify-around mt-5">
                 <a
                   className=" btn btn-ghost border border-green-500 text-green-500 hover:bg-white hover:text-black px-4 py-2 rounded-full"

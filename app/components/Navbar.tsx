@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation"; // Import usePathname
 const Navbar = () => {
   const pathname = usePathname(); // Get the current path
 
-  const links = ["Home", "Services", "Resume", "Work", "Contact"];
+  const links = ["Home", "Services", "Resume", "Work"];
+  const links2 = ["Home", "Services", "Resume", "Work", "Contact"];
 
   const isActive = (link: string) => {
     // Check if the current path matches the link
@@ -42,13 +43,13 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            {links.map((link) => (
-              <li key={link}>
+            {links2.map((links2) => (
+              <li key={links2}>
                 <a
-                  href={link === "Home" ? "/" : `/${link.toLowerCase()}`} // Adjusting href paths
-                  className={isActive(link)} // Apply active styles dynamically
+                  href={links2 === "Home" ? "/" : `/${links2.toLowerCase()}`} // Adjusting href paths
+                  className={isActive(links2)} // Apply active styles dynamically
                 >
-                  {link}
+                  {links2}
                 </a>
               </li>
             ))}
